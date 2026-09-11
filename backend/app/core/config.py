@@ -34,11 +34,11 @@ class Settings(BaseSettings):
     )
 
     # --- OCR ---
-    # "tesseract" (local, default, no API key needed) or "ocr_space" (free-tier
-    # hosted OCR API — requires OCR_SPACE_API_KEY).
-    OCR_PROVIDER: str = "tesseract"
+    # "paddle" (local, default, no API key needed — uses PaddleOCR) or
+    # "ocr_space" (free-tier hosted OCR API — requires OCR_SPACE_API_KEY).
+    OCR_PROVIDER: str = "paddle"
     OCR_SPACE_API_KEY: Optional[str] = None
-    OCR_LANGUAGE: str = "eng"
+    OCR_LANGUAGE: str = "en"
 
     # --- Extraction (LLM) ---
     # When an API key is supplied, the extraction service uses the LLM for

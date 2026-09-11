@@ -4,7 +4,7 @@ Text extraction / OCR service.
 Strategy per page:
   1. Try native text extraction (pypdf) — fast, exact, no OCR errors.
   2. If a page has no (or negligible) extractable text, treat it as a
-     scanned page: rasterise with pdftoppm and run OCR (Tesseract by
+     scanned page: rasterise with pdftoppm and run OCR (PaddleOCR by
      default, or OCR.Space if configured) on the image.
   3. JPG/PNG uploads always go straight through OCR.
 
@@ -18,7 +18,7 @@ import tempfile
 from dataclasses import dataclass, field
 from pathlib import Path
 
-import pytesseract
+import numpy as np
 from PIL import Image
 from pypdf import PdfReader
 
@@ -29,6 +29,25 @@ from app.utils.exceptions import OCRFailedError
 logger = get_logger(__name__)
 
 _MIN_NATIVE_TEXT_CHARS = 20  # below this, treat the page as "scanned"
+
+# Lazy singleton for PaddleOCR engine — initialised on first use so startup
+# is fast and we only pay the model-loading cost when OCR is actually needed.
+_paddle_engine = None
+
+
+def _get_paddle_engine():
+    """Return a cached PaddleOCR instance (initialised on first call)."""
+    global _paddle_engine
+    if _paddle_engine is None:
+        try:
+            from paddleocr import PaddleOCR
+            # use_angle_cls=True handles rotated/skewed text.
+            # show_log=False silences PaddlePaddle's verbose startup output.
+            _paddle_engine = PaddleOCR(use_textline_orientation=True, lang="en", show_log=False)
+            logger.info("PaddleOCR engine initialised successfully.")
+        except Exception as exc:
+            raise OCRFailedError(f"Failed to initialise PaddleOCR engine: {exc}") from exc
+    return _paddle_engine
 
 
 @dataclass
@@ -123,27 +142,89 @@ def _extract_from_image(content: bytes, settings) -> OCRResult:
 
 
 def _ocr_image(image: Image.Image, settings) -> str:
+    """Run OCR on a PIL Image and return the extracted text string."""
     if settings.OCR_PROVIDER == "ocr_space" and settings.OCR_SPACE_API_KEY:
         try:
             return _ocr_via_ocr_space(image, settings)
         except Exception:  # noqa: BLE001
-            logger.warning("OCR.Space failed, falling back to local Tesseract/RapidOCR")
+            logger.warning("OCR.Space failed, falling back to PaddleOCR")
 
+    # --- PaddleOCR (primary local engine) ---
     try:
-        return pytesseract.image_to_string(image, lang=settings.OCR_LANGUAGE)
+        return _ocr_via_paddle(image)
     except Exception as exc:  # noqa: BLE001
-        logger.warning("Tesseract OCR failed (%s), trying RapidOCR fallback", exc)
+        logger.warning("PaddleOCR failed (%s), trying RapidOCR fallback", exc)
         try:
-            import numpy as np
-            from rapidocr_onnxruntime import RapidOCR
-
-            ocr_engine = RapidOCR()
-            res, _ = ocr_engine(np.array(image.convert("RGB")))
-            if res:
-                return _format_rapidocr_result(res)
-            return ""
+            return _ocr_via_rapidocr(image)
         except Exception as fallback_exc:  # noqa: BLE001
-            raise OCRFailedError(f"OCR failed (Tesseract & RapidOCR): {exc} | {fallback_exc}") from exc
+            raise OCRFailedError(
+                f"OCR failed (PaddleOCR & RapidOCR): {exc} | {fallback_exc}"
+            ) from exc
+
+
+def _ocr_via_paddle(image: Image.Image) -> str:
+    """Run PaddleOCR on a PIL image and return joined text."""
+    engine = _get_paddle_engine()
+    img_array = np.array(image.convert("RGB"))
+    result = engine.ocr(img_array, cls=True)
+    if not result or result == [None]:
+        return ""
+    return _format_paddle_result(result)
+
+
+def _format_paddle_result(result: list, line_threshold: float = 15.0) -> str:
+    """
+    Flatten PaddleOCR result structure into a plain-text string.
+
+    PaddleOCR returns: list[list[tuple[bbox, (text, confidence)]]]
+    We sort by Y-coordinate so reading order is preserved, then group
+    words on the same horizontal line before joining.
+    """
+    items = []
+    for page_res in result:
+        if not page_res:
+            continue
+        for line in page_res:
+            # line = [[[x0,y0],[x1,y1],[x2,y2],[x3,y3]], (text, score)]
+            bbox, (text, _score) = line
+            ys = [p[1] for p in bbox]
+            xs = [p[0] for p in bbox]
+            items.append((min(ys), min(xs), text))
+
+    items.sort(key=lambda item: item[0])
+
+    lines: list[str] = []
+    current_line: list[tuple[float, str]] = []
+    current_y: float | None = None
+
+    for y, x, text in items:
+        if current_y is None or abs(y - current_y) <= line_threshold:
+            current_line.append((x, text))
+            current_y = y if current_y is None else (
+                (current_y * (len(current_line) - 1) + y) / len(current_line)
+            )
+        else:
+            current_line.sort(key=lambda item: item[0])
+            lines.append(" ".join(item[1] for item in current_line))
+            current_line = [(x, text)]
+            current_y = y
+
+    if current_line:
+        current_line.sort(key=lambda item: item[0])
+        lines.append(" ".join(item[1] for item in current_line))
+
+    return "\n".join(lines)
+
+
+def _ocr_via_rapidocr(image: Image.Image) -> str:
+    """Fallback OCR using RapidOCR (onnxruntime-based)."""
+    from rapidocr_onnxruntime import RapidOCR
+
+    ocr_engine = RapidOCR()
+    res, _ = ocr_engine(np.array(image.convert("RGB")))
+    if res:
+        return _format_rapidocr_result(res)
+    return ""
 
 
 def _format_rapidocr_result(res: list, line_threshold: float = 15.0) -> str:
