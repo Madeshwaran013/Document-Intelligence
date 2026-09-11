@@ -1,0 +1,156 @@
+{
+    "document_name": "batch2-0999.jpg",
+    "document_type": "invoice",
+    "processing_status": "PASS",
+    "overall_confidence": null,
+    "file_validation": {
+        "file_type": "image/jpeg",
+        "is_supported": true,
+        "is_readable": true,
+        "page_count": 1,
+        "status": "PASS",
+        "reason": null
+    },
+    "extracted_data": {
+        "invoice_number": {
+            "value": "118",
+            "page_number": 1,
+            "source_text": "INVOICE NO.\n\n118"
+        },
+        "invoice_date": {
+            "value": "March 9, 2022",
+            "page_number": 1,
+            "source_text": "DATE:\n\nMarch 9, 2022"
+        },
+        "vendor_name": {
+            "value": null,
+            "page_number": null,
+            "source_text": null
+        },
+        "customer_name": {
+            "value": null,
+            "page_number": null,
+            "source_text": null
+        },
+        "currency": {
+            "value": "USD",
+            "page_number": 1,
+            "source_text": null
+        },
+        "subtotal": {
+            "value": 804.0,
+            "page_number": 1,
+            "source_text": "Subtotal 804"
+        },
+        "tax_amount": {
+            "value": 63.47,
+            "page_number": 1,
+            "source_text": "Sales Tax 8% 63.47"
+        },
+        "discount": {
+            "value": null,
+            "page_number": null,
+            "source_text": null
+        },
+        "total_amount": {
+            "value": 916.47,
+            "page_number": 1,
+            "source_text": "Total Due 916.47"
+        },
+        "cash_paid": {
+            "value": null,
+            "page_number": null,
+            "source_text": null
+        },
+        "change": {
+            "value": null,
+            "page_number": null,
+            "source_text": null
+        },
+        "line_items": [
+            {
+                "description": "3M Scotchcast Electrical Resin #8 - 16 Ibs/kit 16 Ibs/case",
+                "quantity": 2.0,
+                "unit_price": 346.0,
+                "amount": 346.0
+            },
+            {
+                "description": "3M DP460 EG Epoxy Adhesive - 50ml 2:1 12 kits/case",
+                "quantity": 4.0,
+                "unit_price": 226.0,
+                "amount": 226.0
+            },
+            {
+                "description": "Freight AE Blake Montreal to Aerospace Metal",
+                "quantity": 6.0,
+                "unit_price": 136.0,
+                "amount": 136.0
+            },
+            {
+                "description": "04 Lead-time is a mere estimate. Actual delivery may differ",
+                "quantity": 8.0,
+                "unit_price": 96.0,
+                "amount": 96.0
+            }
+        ]
+    },
+    "validation": {
+        "checks": [
+            {
+                "name": "line_item_quantity_times_price",
+                "formula": "quantity * unit_price \u2248 amount (per line item)",
+                "operands": {
+                    "line_items_checked": 4.0
+                },
+                "calculated_value": null,
+                "reported_value": null,
+                "variance": null,
+                "status": "FAIL",
+                "period": null,
+                "note": "Mismatched line items: ['3M Scotchcast Electrical Resin #8 - 16 Ibs/kit 16 Ibs/case', '3M DP460 EG Epoxy Adhesive - 50ml 2:1 12 kits/case', 'Freight AE Blake Montreal to Aerospace Metal', '04 Lead-time is a mere estimate. Actual delivery may differ']"
+            },
+            {
+                "name": "line_items_sum_reconciles_to_subtotal",
+                "formula": "sum(line_totals) \u2248 subtotal",
+                "operands": {
+                    "sum_line_totals": 804.0,
+                    "subtotal": 804.0
+                },
+                "calculated_value": 804.0,
+                "reported_value": 804.0,
+                "variance": 0.0,
+                "status": "PASS",
+                "period": null,
+                "note": null
+            },
+            {
+                "name": "subtotal_plus_tax_minus_discount_equals_total",
+                "formula": "subtotal + tax_amount - discount \u2248 total_amount",
+                "operands": {
+                    "subtotal": 804.0,
+                    "tax_amount": 63.47,
+                    "discount": 0.0
+                },
+                "calculated_value": 867.47,
+                "reported_value": 916.47,
+                "variance": -49.0,
+                "status": "FAIL",
+                "period": null,
+                "note": null
+            }
+        ],
+        "overall_status": "FAIL",
+        "issues": [
+            "line_item_quantity_times_price: reported None vs calculated None",
+            "subtotal_plus_tax_minus_discount_equals_total: reported 916.47 vs calculated 867.47"
+        ]
+    },
+    "processing_metadata": {
+        "ocr_used": true,
+        "ocr_provider": "tesseract",
+        "extraction_method": "heuristic",
+        "processed_at": "2026-09-10T15:14:43.041458Z",
+        "processing_time_ms": 2074
+    },
+    "errors": []
+}

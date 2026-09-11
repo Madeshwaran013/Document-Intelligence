@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Document Extraction Result — NeoStats DocIntel</title>
+<link rel="stylesheet" href="/static/css/style.css" />
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <a href="/" class="back-btn">← Back to Dashboard</a>
+  </div>
+  <div class="nav-actions">
+    <a href="/docs" target="_blank" class="btn-secondary">API Specs ↗</a>
+  </div>
+</header>
+
+<main class="container">
+  <!-- Document Summary Card -->
+  <section class="panel">
+    <div id="result-summary" class="doc-header-card">
+      <div class="doc-title-group">
+        <h2 id="doc-title">Loading Document...</h2>
+        <div class="meta-tags" id="doc-meta"></div>
+      </div>
+      <div id="doc-status-badge"></div>
+    </div>
+  </section>
+
+  <!-- File Validation -->
+  <section class="panel">
+    <div class="panel-header">
+      <h2>🛡️ File Validation & Integrity</h2>
+    </div>
+    <div id="file-validation"></div>
+  </section>
+
+  <!-- Extracted Fields -->
+  <section class="panel">
+    <div class="panel-header">
+      <h2>🔍 Extracted Key-Value Fields</h2>
+    </div>
+    <div id="extracted-fields"></div>
+  </section>
+
+  <!-- Line Items / Tables -->
+  <section class="panel">
+    <div class="panel-header">
+      <h2>📋 Line Items & Table Data</h2>
+    </div>
+    <div id="line-items" class="table-wrapper"></div>
+  </section>
+
+  <!-- Financial Reconciliation Checks -->
+  <section class="panel">
+    <div class="panel-header">
+      <h2>🧮 Financial Formula Reconciliation</h2>
+    </div>
+    <div id="validation-results"></div>
+  </section>
+
+  <!-- Raw JSON Response -->
+  <section class="panel">
+    <div class="panel-header">
+      <h2>📄 Structured JSON Payload</h2>
+      <div style="display:flex;gap:10px">
+        <button id="copy-json-btn" class="btn-secondary">📋 Copy JSON</button>
+        <button id="toggle-json-btn" class="btn-secondary">Show / Hide</button>
+      </div>
+    </div>
+    <pre id="raw-json" class="raw-json hidden"></pre>
+  </section>
+</main>
+
+<script src="/static/js/result.js"></script>
+</body>
+</html>

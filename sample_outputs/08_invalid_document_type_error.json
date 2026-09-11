@@ -1,0 +1,8 @@
+{
+    "detail": {
+        "error": {
+            "code": "INVALID_DOCUMENT_TYPE",
+            "message": "document_type must be one of ['balance_sheet', 'cash_flow_statement', 'invoice', 'profit_and_loss']."
+        }
+    }
+}

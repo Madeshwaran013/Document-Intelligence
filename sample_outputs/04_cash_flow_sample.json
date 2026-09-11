@@ -1,0 +1,416 @@
+{
+    "document_name": "Consolidated Cash Flow Statement 2023.pdf",
+    "document_type": "cash_flow_statement",
+    "processing_status": "PASS",
+    "overall_confidence": null,
+    "file_validation": {
+        "file_type": "application/pdf",
+        "is_supported": true,
+        "is_readable": true,
+        "page_count": 1,
+        "status": "PASS",
+        "reason": null
+    },
+    "extracted_data": {
+        "net_cash_from_operating": {
+            "value": 20813.7,
+            "page_number": 1,
+            "source_text": "Net cash flows from / (used in) operating activities 20,813.70 (11,959.57)"
+        },
+        "net_cash_from_investing": {
+            "value": -3423.89,
+            "page_number": 1,
+            "source_text": "Net cash flow used in investing activities (3,423.89) (2,216.33)"
+        },
+        "net_cash_from_financing": {
+            "value": 23940.56,
+            "page_number": 1,
+            "source_text": "Net cash flow from financing activities 23,940.56 48,124.02"
+        },
+        "fx_translation_adjustment": {
+            "value": 431.71,
+            "page_number": 1,
+            "source_text": "Effect of exchange fluctuation on translation reserve 431.71 165.10"
+        },
+        "net_increase_in_cash": {
+            "value": 41762.08,
+            "page_number": 1,
+            "source_text": "Net increase in cash and cash equivalents 41,762.08 34,113.22"
+        },
+        "opening_cash": {
+            "value": 155385.73,
+            "page_number": 1,
+            "source_text": "Cash and cash equivalents as at April 1\u00b0 (Schedule 6 + 7) 155,385.73 121,272.51"
+        },
+        "closing_cash": {
+            "value": 197147.81,
+            "page_number": 1,
+            "source_text": "Cash and cash equivalents as at the year end (Schedule 6 + 7) 197,147.81 155,385.73"
+        },
+        "currency": {
+            "value": "INR",
+            "page_number": 1,
+            "source_text": null
+        },
+        "line_items": [
+            {
+                "label": "For the year ended March",
+                "section": null,
+                "values": {
+                    "2023": 31.0,
+                    "2022": 2023.0
+                },
+                "page_number": 1,
+                "source_text": "For the year ended March 31, 2023"
+            },
+            {
+                "label": "March 31, 2023 March",
+                "section": null,
+                "values": {
+                    "2023": 31.0,
+                    "2022": 2022.0
+                },
+                "page_number": 1,
+                "source_text": "March 31, 2023 March 31, 2022"
+            },
+            {
+                "label": "Consolidated profit before income tax",
+                "section": "OPERATING ACTIVITIES",
+                "values": {
+                    "2023": 61346.8,
+                    "2022": 50775.24
+                },
+                "page_number": 1,
+                "source_text": "Consolidated profit before income tax 61,346.80 50,775.24"
+            },
+            {
+                "label": "Depreciation on fixed assets",
+                "section": "OPERATING ACTIVITIES",
+                "values": {
+                    "2023": 2345.47,
+                    "2022": 1680.73
+                },
+                "page_number": 1,
+                "source_text": "Depreciation on fixed assets 2,345.47 1,680.73"
+            },
+            {
+                "label": "(Profit) / loss on revaluation of investments",
+                "section": "OPERATING ACTIVITIES",
+                "values": {
+                    "2023": 545.82,
+                    "2022": -1546.4
+                },
+                "page_number": 1,
+                "source_text": "(Profit) / loss on revaluation of investments 545.82 (1,546.40)"
+            },
+            {
+                "label": "Amortisation of premium on held to maturity investments",
+                "section": "OPERATING ACTIVITIES",
+                "values": {
+                    "2023": 851.2,
+                    "2022": 821.32
+                },
+                "page_number": 1,
+                "source_text": "Amortisation of premium on held to maturity investments 851.20 821.32"
+            },
+            {
+                "label": "(Profit) / loss on sale of fixed assets",
+                "section": "OPERATING ACTIVITIES",
+                "values": {
+                    "2023": -8.05,
+                    "2022": 3.25
+                },
+                "page_number": 1,
+                "source_text": "(Profit) / loss on sale of fixed assets (8.05) 3.25"
+            },
+            {
+                "label": "Provision / charge for non performing assets",
+                "section": "OPERATING ACTIVITIES",
+                "values": {
+                    "2023": 13561.19,
+                    "2022": 13286.95
+                },
+                "page_number": 1,
+                "source_text": "Provision / charge for non performing assets 13,561.19 13,286.95"
+            },
+            {
+                "label": "Provision for standard assets and contingencies",
+                "section": "OPERATING ACTIVITIES",
+                "values": {
+                    "2023": 292.89,
+                    "2022": 5418.21
+                },
+                "page_number": 1,
+                "source_text": "Provision for standard assets and contingencies 292.89 5,418.21"
+            },
+            {
+                "label": "Employee Stock Options / Units expense",
+                "section": "OPERATING ACTIVITIES",
+                "values": {
+                    "2023": 787.06,
+                    "2022": 341.24
+                },
+                "page_number": 1,
+                "source_text": "Employee Stock Options / Units expense 787.06 341.24"
+            },
+            {
+                "label": "Increase in investments",
+                "section": "OPERATING ACTIVITIES",
+                "values": {
+                    "2023": -64182.03,
+                    "2022": -10849.22
+                },
+                "page_number": 1,
+                "source_text": "Increase in investments. (64,182.03) (10,849.22)"
+            },
+            {
+                "label": "Increase in advances",
+                "section": "OPERATING ACTIVITIES",
+                "values": {
+                    "2023": -254569.45,
+                    "2022": -248946.13
+                },
+                "page_number": 1,
+                "source_text": "Increase in advances (254,569.45) (248,946.13)"
+            },
+            {
+                "label": "Increase in deposits",
+                "section": "OPERATING ACTIVITIES",
+                "values": {
+                    "2023": 324660.22,
+                    "2022": 224282.15
+                },
+                "page_number": 1,
+                "source_text": "Increase in deposits 324,660.22 224,282.15"
+            },
+            {
+                "label": "Increase in other assets",
+                "section": "OPERATING ACTIVITIES",
+                "values": {
+                    "2023": -58909.79,
+                    "2022": -40044.7
+                },
+                "page_number": 1,
+                "source_text": "Increase in other assets (58,909.79) (40,044.70)"
+            },
+            {
+                "label": "Increase in other liabilities and provisions",
+                "section": "OPERATING ACTIVITIES",
+                "values": {
+                    "2023": 10459.86,
+                    "2022": 7655.94
+                },
+                "page_number": 1,
+                "source_text": "Increase in other liabilities and provisions 10,459.86 7,655.94"
+            },
+            {
+                "label": "Direct taxes paid (net of refunds)",
+                "section": "OPERATING ACTIVITIES",
+                "values": {
+                    "2023": -16367.49,
+                    "2022": -14838.16
+                },
+                "page_number": 1,
+                "source_text": "Direct taxes paid (net of refunds) (16,367.49) (14,838.16)"
+            },
+            {
+                "label": "Net cash flows from / (used in) operating activities",
+                "section": "OPERATING ACTIVITIES",
+                "values": {
+                    "2023": 20813.7,
+                    "2022": -11959.57
+                },
+                "page_number": 1,
+                "source_text": "Net cash flows from / (used in) operating activities 20,813.70 (11,959.57)"
+            },
+            {
+                "label": "Purchase of fixed assets",
+                "section": "INVESTING ACTIVITIES",
+                "values": {
+                    "2023": -8466.57,
+                    "2022": -2236.24
+                },
+                "page_number": 1,
+                "source_text": "Purchase of fixed assets (8,466.57) (2,236.24)"
+            },
+            {
+                "label": "Proceeds from sale of fixed assets",
+                "section": "INVESTING ACTIVITIES",
+                "values": {
+                    "2023": 42.68,
+                    "2022": 19.91
+                },
+                "page_number": 1,
+                "source_text": "Proceeds from sale of fixed assets 42.68 19.91"
+            },
+            {
+                "label": "Net cash flow used in investing activities",
+                "section": "INVESTING ACTIVITIES",
+                "values": {
+                    "2023": -3423.89,
+                    "2022": -2216.33
+                },
+                "page_number": 1,
+                "source_text": "Net cash flow used in investing activities (3,423.89) (2,216.33)"
+            },
+            {
+                "label": "Increase in minority interest",
+                "section": "FINANCING ACTIVITIES",
+                "values": {
+                    "2023": 198.96,
+                    "2022": 135.83
+                },
+                "page_number": 1,
+                "source_text": "Increase in minority interest 198.96 135.83"
+            },
+            {
+                "label": "Proceeds from issue of share capital, net of issue expenses",
+                "section": "FINANCING ACTIVITIES",
+                "values": {
+                    "2023": 3415.83,
+                    "2022": 2609.76
+                },
+                "page_number": 1,
+                "source_text": "Proceeds from issue of share capital, net of issue expenses 3,415.83 2,609.76"
+            },
+            {
+                "label": "Proceeds from issue of Tier 1 and Tier 2 capital bonds",
+                "section": "FINANCING ACTIVITIES",
+                "values": {
+                    "2023": 23000.0,
+                    "2022": 8312.75
+                },
+                "page_number": 1,
+                "source_text": "Proceeds from issue of Tier 1 and Tier 2 capital bonds 23,000.00 8,312.75"
+            },
+            {
+                "label": "Redemption of Tier 1 and Tier 2 capital bonds",
+                "section": "FINANCING ACTIVITIES",
+                "values": {
+                    "2023": -12077.0,
+                    "2022": -3650.0
+                },
+                "page_number": 1,
+                "source_text": "Redemption of Tier 1 and Tier 2 capital bonds (12,077.00) (3,650.00)"
+            },
+            {
+                "label": "Increase in other borrowings",
+                "section": "FINANCING ACTIVITIES",
+                "values": {
+                    "2023": 18007.29,
+                    "2022": 44308.08
+                },
+                "page_number": 1,
+                "source_text": "Increase in other borrowings 18,007.29 44,308.08"
+            },
+            {
+                "label": "Dividend paid during the year",
+                "section": "FINANCING ACTIVITIES",
+                "values": {
+                    "2023": -8604.52,
+                    "2022": -3592.4
+                },
+                "page_number": 1,
+                "source_text": "Dividend paid during the year (8,604.52) (3,592.40)"
+            },
+            {
+                "label": "Net cash flow from financing activities",
+                "section": "FINANCING ACTIVITIES",
+                "values": {
+                    "2023": 23940.56,
+                    "2022": 48124.02
+                },
+                "page_number": 1,
+                "source_text": "Net cash flow from financing activities 23,940.56 48,124.02"
+            },
+            {
+                "label": "Effect of exchange fluctuation on translation reserve",
+                "section": "FINANCING ACTIVITIES",
+                "values": {
+                    "2023": 431.71,
+                    "2022": 165.1
+                },
+                "page_number": 1,
+                "source_text": "Effect of exchange fluctuation on translation reserve 431.71 165.10"
+            },
+            {
+                "label": "Net increase in cash and cash equivalents",
+                "section": "FINANCING ACTIVITIES",
+                "values": {
+                    "2023": 41762.08,
+                    "2022": 34113.22
+                },
+                "page_number": 1,
+                "source_text": "Net increase in cash and cash equivalents 41,762.08 34,113.22"
+            },
+            {
+                "label": "Cash and cash equivalents as at April 1\u00b0 (Schedule 6 +",
+                "section": "FINANCING ACTIVITIES",
+                "values": {
+                    "2023": 155385.73,
+                    "2022": 121272.51
+                },
+                "page_number": 1,
+                "source_text": "Cash and cash equivalents as at April 1\u00b0 (Schedule 6 + 7) 155,385.73 121,272.51"
+            },
+            {
+                "label": "Cash and cash equivalents as at the year end (Schedule 6 +",
+                "section": "FINANCING ACTIVITIES",
+                "values": {
+                    "2023": 197147.81,
+                    "2022": 155385.73
+                },
+                "page_number": 1,
+                "source_text": "Cash and cash equivalents as at the year end (Schedule 6 + 7) 197,147.81 155,385.73"
+            }
+        ],
+        "periods": [
+            "2023",
+            "2022"
+        ]
+    },
+    "validation": {
+        "checks": [
+            {
+                "name": "operating_investing_financing_fx_equals_net_increase",
+                "formula": "Operating + Investing + Financing + FX/Translation Adjustment \u2248 Net Increase in Cash",
+                "operands": {
+                    "net_cash_from_operating": 20813.7,
+                    "net_cash_from_investing": -3423.89,
+                    "net_cash_from_financing": 23940.56,
+                    "fx_translation_adjustment": 431.71
+                },
+                "calculated_value": 41762.08,
+                "reported_value": 41762.08,
+                "variance": 0.0,
+                "status": "PASS",
+                "period": null,
+                "note": null
+            },
+            {
+                "name": "opening_cash_plus_net_increase_equals_closing_cash",
+                "formula": "Opening Cash & Cash Equivalents + Net Increase in Cash \u2248 Closing Cash & Cash Equivalents",
+                "operands": {
+                    "opening_cash": 155385.73,
+                    "net_increase_in_cash": 41762.08
+                },
+                "calculated_value": 197147.81,
+                "reported_value": 197147.81,
+                "variance": 0.0,
+                "status": "PASS",
+                "period": null,
+                "note": null
+            }
+        ],
+        "overall_status": "PASS",
+        "issues": []
+    },
+    "processing_metadata": {
+        "ocr_used": true,
+        "ocr_provider": "tesseract",
+        "extraction_method": "heuristic",
+        "processed_at": "2026-09-10T15:14:58.517610Z",
+        "processing_time_ms": 6021
+    },
+    "errors": []
+}

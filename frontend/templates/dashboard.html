@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>NeoStats Document Intelligence Platform</title>
+<meta name="description" content="AI document extraction, validation, and financial reconciliation engine." />
+<link rel="stylesheet" href="/static/css/style.css" />
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <div class="brand-icon">⚡</div>
+    <div>
+      <h1>NeoStats DocIntel</h1>
+      <div class="brand-subtitle">AI Financial Extraction & Reconciliation</div>
+    </div>
+  </div>
+  <div class="nav-actions">
+    <div id="health-badge" class="health-badge">
+      <span class="pulse-dot"></span>
+      <span id="health-text">Checking API...</span>
+    </div>
+    <a href="/docs" target="_blank" class="btn-secondary">API Specs ↗</a>
+  </div>
+</header>
+
+<main class="container">
+  <!-- Metrics Bar -->
+  <section class="metrics-grid">
+    <div class="metric-card">
+      <div class="metric-icon">📄</div>
+      <div class="metric-info">
+        <div class="label">Total Processed</div>
+        <div class="value" id="stat-total">0</div>
+      </div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-icon">✅</div>
+      <div class="metric-info">
+        <div class="label">Pass Rate</div>
+        <div class="value" id="stat-pass-rate">100%</div>
+      </div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-icon">⚡</div>
+      <div class="metric-info">
+        <div class="label">Avg Time</div>
+        <div class="value" id="stat-avg-time">-- ms</div>
+      </div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-icon">🤖</div>
+      <div class="metric-info">
+        <div class="label">Active Engine</div>
+        <div class="value" id="stat-engine">Heuristic OCR</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Upload & Process Panel -->
+  <section class="panel">
+    <div class="panel-header">
+      <h2>📤 Process New Document</h2>
+    </div>
+
+    <form id="upload-form">
+      <div class="doc-type-selector">
+        <div class="type-chip active" data-type="invoice">
+          <div class="icon">🧾</div>
+          <div>
+            <div class="title">Invoice</div>
+            <div class="desc">Vendor, total, line items</div>
+          </div>
+        </div>
+        <div class="type-chip" data-type="balance_sheet">
+          <div class="icon">📊</div>
+          <div>
+            <div class="title">Balance Sheet</div>
+            <div class="desc">Assets, liabilities, capital</div>
+          </div>
+        </div>
+        <div class="type-chip" data-type="profit_and_loss">
+          <div class="icon">📈</div>
+          <div>
+            <div class="title">Profit & Loss</div>
+            <div class="desc">Revenue, expenses, profit</div>
+          </div>
+        </div>
+        <div class="type-chip" data-type="cash_flow_statement">
+          <div class="icon">💵</div>
+          <div>
+            <div class="title">Cash Flow</div>
+            <div class="desc">Operating, investing</div>
+          </div>
+        </div>
+      </div>
+      <input type="hidden" id="document_type" name="document_type" value="invoice" />
+
+      <div class="drop-zone" id="drop-zone">
+        <div class="drop-zone-icon">📁</div>
+        <h3>Drag & Drop file here or click to browse</h3>
+        <p>Supports PDF, JPG, PNG (up to 3 pages)</p>
+        <input type="file" id="file" name="file" class="file-input" accept=".pdf,.jpg,.jpeg,.png" required />
+      </div>
+
+      <div id="file-info" class="selected-file-info hidden">
+        <span id="selected-filename">filename.pdf</span>
+        <button type="button" id="remove-file" class="btn-secondary">Change</button>
+      </div>
+
+      <button type="submit" id="process-btn" class="btn-primary" disabled>
+        <span>Extract & Reconcile Document</span>
+      </button>
+    </form>
+
+    <div id="upload-status" style="margin-top:16px"></div>
+  </section>
+
+  <!-- Processed Documents Panel -->
+  <section class="panel">
+    <div class="panel-header">
+      <h2>📋 Processed Documents</h2>
+      <button id="refresh-btn" class="btn-secondary">🔄 Refresh</button>
+    </div>
+
+    <div class="controls-bar">
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="search-input" placeholder="Search by file name or type..." />
+      </div>
+      <div class="filter-tabs">
+        <button class="tab-btn active" data-filter="all">All</button>
+        <button class="tab-btn" data-filter="invoice">Invoices</button>
+        <button class="tab-btn" data-filter="balance_sheet">Balance Sheets</button>
+        <button class="tab-btn" data-filter="profit_and_loss">P&L</button>
+        <button class="tab-btn" data-filter="cash_flow_statement">Cash Flow</button>
+      </div>
+    </div>
+
+    <div class="table-wrapper">
+      <table id="doc-table">
+        <thead>
+          <tr>
+            <th>Document Name</th>
+            <th>Type</th>
+            <th>Extraction Status</th>
+            <th>Validation</th>
+            <th>Processed At</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="doc-table-body">
+          <tr><td colspan="6" class="empty">Loading processed records...</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+<script src="/static/js/app.js"></script>
+</body>
+</html>

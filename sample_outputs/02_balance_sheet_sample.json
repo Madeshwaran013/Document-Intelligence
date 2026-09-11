@@ -1,0 +1,316 @@
+{
+    "document_name": "Consolidated Balance Sheet 2023.pdf",
+    "document_type": "balance_sheet",
+    "processing_status": "PASS",
+    "overall_confidence": null,
+    "file_validation": {
+        "file_type": "application/pdf",
+        "is_supported": true,
+        "is_readable": true,
+        "page_count": 1,
+        "status": "PASS",
+        "reason": null
+    },
+    "extracted_data": {
+        "total_capital_and_liabilities": {
+            "value": 2530432.44,
+            "page_number": 1,
+            "source_text": "Total 2,530,432.44 2,122,934.30"
+        },
+        "total_assets": {
+            "value": 2530432.44,
+            "page_number": 1,
+            "source_text": "Total 2,530,432.44 2,122,934.30"
+        },
+        "capital": {
+            "value": 557.97,
+            "page_number": 1,
+            "source_text": "Capital i 557.97 554,55"
+        },
+        "reserves_and_surplus": {
+            "value": 288879.53,
+            "page_number": 1,
+            "source_text": "Reserves and surplus 2 288,879.53 246,771.62"
+        },
+        "deposits": {
+            "value": 1882663.25,
+            "page_number": 1,
+            "source_text": "Deposits 3 1,882,663.25 1,558,003.03"
+        },
+        "borrowings": {
+            "value": 256548.66,
+            "page_number": 1,
+            "source_text": "Borrowings 4 256,548.66 226,966.50"
+        },
+        "total_liabilities": {
+            "value": 100922.77,
+            "page_number": 1,
+            "source_text": "Other liabilities and provisions 5 100,922.77 89,918.19"
+        },
+        "cash_and_balances": {
+            "value": 117189.28,
+            "page_number": 1,
+            "source_text": "Cash and balances with Reserve Bank of India 6 117,189.28 130,030.71"
+        },
+        "investments": {
+            "value": 511581.71,
+            "page_number": 1,
+            "source_text": "Investments 8 511,581.71 449,263.86"
+        },
+        "advances": {
+            "value": 1661949.29,
+            "page_number": 1,
+            "source_text": "Advances 9 1,661,949.29 1,420,942.28"
+        },
+        "fixed_assets": {
+            "value": 8282.56,
+            "page_number": 1,
+            "source_text": "Fixed assets 10 8,282.56 6,283.28"
+        },
+        "currency": {
+            "value": "INR",
+            "page_number": 1,
+            "source_text": null
+        },
+        "line_items": [
+            {
+                "label": "As at March",
+                "section": null,
+                "values": {
+                    "2023": 31.0,
+                    "col_2": 2023.0
+                },
+                "page_number": 1,
+                "source_text": "As at March 31, 2023"
+            },
+            {
+                "label": "Capital i",
+                "section": "CAPITAL AND LIABILITIES",
+                "values": {
+                    "2023": 557.97,
+                    "col_2": 55455.0
+                },
+                "page_number": 1,
+                "source_text": "Capital i 557.97 554,55"
+            },
+            {
+                "label": "Reserves and surplus",
+                "section": "CAPITAL AND LIABILITIES",
+                "values": {
+                    "2023": 288879.53,
+                    "col_2": 246771.62
+                },
+                "page_number": 1,
+                "source_text": "Reserves and surplus 2 288,879.53 246,771.62"
+            },
+            {
+                "label": "Minority interest 2A",
+                "section": "CAPITAL AND LIABILITIES",
+                "values": {
+                    "2023": 860.26,
+                    "col_2": 720.41
+                },
+                "page_number": 1,
+                "source_text": "Minority interest 2A 860.26 720.41"
+            },
+            {
+                "label": "Deposits",
+                "section": "CAPITAL AND LIABILITIES",
+                "values": {
+                    "2023": 1882663.25,
+                    "col_2": 1558003.03
+                },
+                "page_number": 1,
+                "source_text": "Deposits 3 1,882,663.25 1,558,003.03"
+            },
+            {
+                "label": "Borrowings",
+                "section": "CAPITAL AND LIABILITIES",
+                "values": {
+                    "2023": 256548.66,
+                    "col_2": 226966.5
+                },
+                "page_number": 1,
+                "source_text": "Borrowings 4 256,548.66 226,966.50"
+            },
+            {
+                "label": "Other liabilities and provisions",
+                "section": "CAPITAL AND LIABILITIES",
+                "values": {
+                    "2023": 100922.77,
+                    "col_2": 89918.19
+                },
+                "page_number": 1,
+                "source_text": "Other liabilities and provisions 5 100,922.77 89,918.19"
+            },
+            {
+                "label": "Total",
+                "section": "CAPITAL AND LIABILITIES",
+                "values": {
+                    "2023": 2530432.44,
+                    "col_2": 2122934.3
+                },
+                "page_number": 1,
+                "source_text": "Total 2,530,432.44 2,122,934.30"
+            },
+            {
+                "label": "Cash and balances with Reserve Bank of India",
+                "section": "ASSETS",
+                "values": {
+                    "2023": 117189.28,
+                    "col_2": 130030.71
+                },
+                "page_number": 1,
+                "source_text": "Cash and balances with Reserve Bank of India 6 117,189.28 130,030.71"
+            },
+            {
+                "label": "Balances with banks and money at call and short notice",
+                "section": "ASSETS",
+                "values": {
+                    "2023": 79958.53,
+                    "col_2": 25355.02
+                },
+                "page_number": 1,
+                "source_text": "Balances with banks and money at call and short notice 7 79,958.53 25,355.02"
+            },
+            {
+                "label": "Investments",
+                "section": "ASSETS",
+                "values": {
+                    "2023": 511581.71,
+                    "col_2": 449263.86
+                },
+                "page_number": 1,
+                "source_text": "Investments 8 511,581.71 449,263.86"
+            },
+            {
+                "label": "Advances",
+                "section": "ASSETS",
+                "values": {
+                    "2023": 1661949.29,
+                    "col_2": 1420942.28
+                },
+                "page_number": 1,
+                "source_text": "Advances 9 1,661,949.29 1,420,942.28"
+            },
+            {
+                "label": "Fixed assets",
+                "section": "ASSETS",
+                "values": {
+                    "2023": 8282.56,
+                    "col_2": 6283.28
+                },
+                "page_number": 1,
+                "source_text": "Fixed assets 10 8,282.56 6,283.28"
+            },
+            {
+                "label": "Other assets afl",
+                "section": "ASSETS",
+                "values": {
+                    "2023": 151322.28,
+                    "col_2": 90910.36
+                },
+                "page_number": 1,
+                "source_text": "Other assets afl 151,322.28 90,910.36"
+            },
+            {
+                "label": "Goodwill on Consolidation",
+                "section": "ASSETS",
+                "values": {
+                    "2023": 148.79,
+                    "col_2": 148.79
+                },
+                "page_number": 1,
+                "source_text": "Goodwill on Consolidation 148.79 148.79"
+            },
+            {
+                "label": "Total",
+                "section": "ASSETS",
+                "values": {
+                    "2023": 2530432.44,
+                    "col_2": 2122934.3
+                },
+                "page_number": 1,
+                "source_text": "Total 2,530,432.44 2,122,934.30"
+            },
+            {
+                "label": "Contingent liabilities",
+                "section": "ASSETS",
+                "values": {
+                    "2023": 712.0,
+                    "col_2": 1750953.81,
+                    "col_3": 1400197.64
+                },
+                "page_number": 1,
+                "source_text": "Contingent liabilities 712 1,750,953.81 1,400,197.64"
+            },
+            {
+                "label": "Bills for collection",
+                "section": "ASSETS",
+                "values": {
+                    "2023": 71439.54,
+                    "col_2": 56968.05
+                },
+                "page_number": 1,
+                "source_text": "Bills for collection 71,439.54 56,968.05"
+            }
+        ],
+        "periods": [
+            "2023"
+        ]
+    },
+    "validation": {
+        "checks": [
+            {
+                "name": "total_capital_and_liabilities_equals_total_assets",
+                "formula": "Total Capital & Liabilities \u2248 Total Assets",
+                "operands": {
+                    "total_capital_and_liabilities": 2530432.44,
+                    "total_assets": 2530432.44
+                },
+                "calculated_value": 2530432.44,
+                "reported_value": 2530432.44,
+                "variance": 0.0,
+                "status": "PASS",
+                "period": "2023",
+                "note": null
+            },
+            {
+                "name": "capital_and_liabilities_components_reconcile",
+                "formula": "sum(components in Capital And Liabilities) \u2248 reported total (Capital And Liabilities)",
+                "operands": {
+                    "component_sum": 2530432.44
+                },
+                "calculated_value": 2530432.44,
+                "reported_value": 2530432.44,
+                "variance": 0.0,
+                "status": "PASS",
+                "period": "2023",
+                "note": null
+            },
+            {
+                "name": "assets_components_reconcile",
+                "formula": "sum(components in Assets) \u2248 reported total (Assets)",
+                "operands": {
+                    "component_sum": 2530432.44
+                },
+                "calculated_value": 2530432.44,
+                "reported_value": 2530432.44,
+                "variance": 0.0,
+                "status": "PASS",
+                "period": "2023",
+                "note": null
+            }
+        ],
+        "overall_status": "PASS",
+        "issues": []
+    },
+    "processing_metadata": {
+        "ocr_used": true,
+        "ocr_provider": "tesseract",
+        "extraction_method": "heuristic",
+        "processed_at": "2026-09-10T15:14:47.161463Z",
+        "processing_time_ms": 4088
+    },
+    "errors": []
+}

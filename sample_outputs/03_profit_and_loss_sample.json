@@ -1,0 +1,442 @@
+{
+    "document_name": "Consolidated Profit & Loss 2023.pdf",
+    "document_type": "profit_and_loss",
+    "processing_status": "PASS",
+    "overall_confidence": null,
+    "file_validation": {
+        "file_type": "application/pdf",
+        "is_supported": true,
+        "is_readable": true,
+        "page_count": 1,
+        "status": "PASS",
+        "reason": null
+    },
+    "extracted_data": {
+        "interest_earned": {
+            "value": 170754.05,
+            "page_number": 1,
+            "source_text": "Interest earned 13 170,754.05 135,936.41"
+        },
+        "other_income": {
+            "value": 33912.05,
+            "page_number": 1,
+            "source_text": "Other income 14 33,912.05 31,758.99"
+        },
+        "total_income": {
+            "value": 204666.1,
+            "page_number": 1,
+            "source_text": "Total 204,666.10 167,695.40"
+        },
+        "interest_expended": {
+            "value": 77779.94,
+            "page_number": 1,
+            "source_text": "Interest expended 15: 77,779.94 58,584.33"
+        },
+        "operating_expenses": {
+            "value": 51533.69,
+            "page_number": 1,
+            "source_text": "Operating expenses 16 51,533.69 40,312.43"
+        },
+        "provisions_and_contingencies": {
+            "value": 29203.77,
+            "page_number": 1,
+            "source_text": "Provisions and contingencies [Refer Schedule 18 (11)] 29,203.77 30,647.74"
+        },
+        "total_expenditure": {
+            "value": 158517.4,
+            "page_number": 1,
+            "source_text": "Total 158,517.40 129,544.50"
+        },
+        "net_profit_before_minority_interest": {
+            "value": 46148.7,
+            "page_number": 1,
+            "source_text": "Consolidated Net Profit for the year before minorities' interest 46,148.70 38,150.90"
+        },
+        "minority_interest": {
+            "value": 151.59,
+            "page_number": 1,
+            "source_text": "Less : Minorities' Interest 151.59 98.15"
+        },
+        "net_profit_attributable_to_group": {
+            "value": 45997.11,
+            "page_number": 1,
+            "source_text": "Consolidated Net Profit for the year attributable to the group 45,997.11 38,052.75"
+        },
+        "brought_forward_profit": {
+            "value": 99062.77,
+            "page_number": 1,
+            "source_text": "Add: Brought forward consolidated profit attributable to the group 99,062.77 78,594.20"
+        },
+        "total_available_for_appropriation": {
+            "value": 145059.88,
+            "page_number": 1,
+            "source_text": "Total 145,059.88 116,646.95"
+        },
+        "revenue": {
+            "value": 170754.05,
+            "page_number": 1,
+            "source_text": "Interest earned 13 170,754.05 135,936.41"
+        },
+        "net_profit": {
+            "value": 45997.11,
+            "page_number": 1,
+            "source_text": "Consolidated Net Profit for the year attributable to the group 45,997.11 38,052.75"
+        },
+        "currency": {
+            "value": "INR",
+            "page_number": 1,
+            "source_text": null
+        },
+        "line_items": [
+            {
+                "label": "For the year ended March",
+                "section": "PROFIT",
+                "values": {
+                    "2023": 31.0,
+                    "2022": 2023.0
+                },
+                "page_number": 1,
+                "source_text": "For the year ended March 31, 2023"
+            },
+            {
+                "label": "Schedule March 31, 2023 March",
+                "section": "PROFIT",
+                "values": {
+                    "2023": 31.0,
+                    "2022": 2022.0
+                },
+                "page_number": 1,
+                "source_text": "Schedule March 31, 2023 March 31, 2022"
+            },
+            {
+                "label": "Interest earned",
+                "section": "INCOME",
+                "values": {
+                    "2023": 170754.05,
+                    "2022": 135936.41
+                },
+                "page_number": 1,
+                "source_text": "Interest earned 13 170,754.05 135,936.41"
+            },
+            {
+                "label": "Other income",
+                "section": "INCOME",
+                "values": {
+                    "2023": 33912.05,
+                    "2022": 31758.99
+                },
+                "page_number": 1,
+                "source_text": "Other income 14 33,912.05 31,758.99"
+            },
+            {
+                "label": "Total",
+                "section": "INCOME",
+                "values": {
+                    "2023": 204666.1,
+                    "2022": 167695.4
+                },
+                "page_number": 1,
+                "source_text": "Total 204,666.10 167,695.40"
+            },
+            {
+                "label": "Interest expended 15",
+                "section": "EXPENDITURE",
+                "values": {
+                    "2023": 77779.94,
+                    "2022": 58584.33
+                },
+                "page_number": 1,
+                "source_text": "Interest expended 15: 77,779.94 58,584.33"
+            },
+            {
+                "label": "Operating expenses",
+                "section": "EXPENDITURE",
+                "values": {
+                    "2023": 51533.69,
+                    "2022": 40312.43
+                },
+                "page_number": 1,
+                "source_text": "Operating expenses 16 51,533.69 40,312.43"
+            },
+            {
+                "label": "Provisions and contingencies [Refer Schedule 18 (11)]",
+                "section": "EXPENDITURE",
+                "values": {
+                    "2023": 29203.77,
+                    "2022": 30647.74
+                },
+                "page_number": 1,
+                "source_text": "Provisions and contingencies [Refer Schedule 18 (11)] 29,203.77 30,647.74"
+            },
+            {
+                "label": "Total",
+                "section": "EXPENDITURE",
+                "values": {
+                    "2023": 158517.4,
+                    "2022": 129544.5
+                },
+                "page_number": 1,
+                "source_text": "Total 158,517.40 129,544.50"
+            },
+            {
+                "label": "Consolidated Net Profit for the year before minorities' interest",
+                "section": "PROFIT",
+                "values": {
+                    "2023": 46148.7,
+                    "2022": 38150.9
+                },
+                "page_number": 1,
+                "source_text": "Consolidated Net Profit for the year before minorities' interest 46,148.70 38,150.90"
+            },
+            {
+                "label": "Less : Minorities' Interest",
+                "section": "PROFIT",
+                "values": {
+                    "2023": 151.59,
+                    "2022": 98.15
+                },
+                "page_number": 1,
+                "source_text": "Less : Minorities' Interest 151.59 98.15"
+            },
+            {
+                "label": "Consolidated Net Profit for the year attributable to the group",
+                "section": "PROFIT",
+                "values": {
+                    "2023": 45997.11,
+                    "2022": 38052.75
+                },
+                "page_number": 1,
+                "source_text": "Consolidated Net Profit for the year attributable to the group 45,997.11 38,052.75"
+            },
+            {
+                "label": "Add: Brought forward consolidated profit attributable to the group",
+                "section": "PROFIT",
+                "values": {
+                    "2023": 99062.77,
+                    "2022": 78594.2
+                },
+                "page_number": 1,
+                "source_text": "Add: Brought forward consolidated profit attributable to the group 99,062.77 78,594.20"
+            },
+            {
+                "label": "Total",
+                "section": "PROFIT",
+                "values": {
+                    "2023": 145059.88,
+                    "2022": 116646.95
+                },
+                "page_number": 1,
+                "source_text": "Total 145,059.88 116,646.95"
+            },
+            {
+                "label": "Transfer to Statutory Reserve",
+                "section": "APPROPRIATIONS",
+                "values": {
+                    "2023": 11445.96,
+                    "2022": 9444.38
+                },
+                "page_number": 1,
+                "source_text": "Transfer to Statutory Reserve 11,445.96 9,444.38"
+            },
+            {
+                "label": "Transfer to General Reserve",
+                "section": "APPROPRIATIONS",
+                "values": {
+                    "2023": 4410.87,
+                    "2022": 3696.14
+                },
+                "page_number": 1,
+                "source_text": "Transfer to General Reserve 4,410.87 3,696.14"
+            },
+            {
+                "label": "Transfer to Special Reserve",
+                "section": "APPROPRIATIONS",
+                "values": {
+                    "2023": 500.0,
+                    "2022": 0.0
+                },
+                "page_number": 1,
+                "source_text": "Transfer to Special Reserve 500.00 -"
+            },
+            {
+                "label": "Transfer to Capital Reserve",
+                "section": "APPROPRIATIONS",
+                "values": {
+                    "2023": 4.62,
+                    "2022": 666.47
+                },
+                "page_number": 1,
+                "source_text": "Transfer to Capital Reserve 4.62 666.47"
+            },
+            {
+                "label": "Transfer to / (from) Investment Reserve Account (net)",
+                "section": "APPROPRIATIONS",
+                "values": {
+                    "2023": -294.79,
+                    "2022": 233.13
+                },
+                "page_number": 1,
+                "source_text": "Transfer to / (from) Investment Reserve Account (net) (294.79) 233.13"
+            },
+            {
+                "label": "Transfer to / (from) Investment Fluctuation Reserve",
+                "section": "APPROPRIATIONS",
+                "values": {
+                    "2023": 82.0,
+                    "2022": 0.0
+                },
+                "page_number": 1,
+                "source_text": "Transfer to / (from) Investment Fluctuation Reserve 82.00 -"
+            },
+            {
+                "label": "Dividend pertaining to previous year paid during the year",
+                "section": "APPROPRIATIONS",
+                "values": {
+                    "2023": 8604.52,
+                    "2022": 3592.4
+                },
+                "page_number": 1,
+                "source_text": "Dividend pertaining to previous year paid during the year 8,604.52 3,592.40"
+            },
+            {
+                "label": "Transfer to / (from) Minority Interest (opening adjustment)",
+                "section": "APPROPRIATIONS",
+                "values": {
+                    "2023": -62.65,
+                    "2022": -48.34
+                },
+                "page_number": 1,
+                "source_text": "Transfer to / (from) Minority Interest (opening adjustment) (62.65) (48.34)"
+            },
+            {
+                "label": "Balance carried over to consolidated balance sheet",
+                "section": "APPROPRIATIONS",
+                "values": {
+                    "2023": 120369.35,
+                    "2022": 99062.77
+                },
+                "page_number": 1,
+                "source_text": "Balance carried over to consolidated balance sheet 120,369.35 99,062.77"
+            },
+            {
+                "label": "Total",
+                "section": "APPROPRIATIONS",
+                "values": {
+                    "2023": 145059.88,
+                    "2022": 116646.95
+                },
+                "page_number": 1,
+                "source_text": "Total 145,059.88 116,646.95"
+            },
+            {
+                "label": "Basic",
+                "section": "APPROPRIATIONS",
+                "values": {
+                    "2023": 82.64,
+                    "2022": 68.77
+                },
+                "page_number": 1,
+                "source_text": "Basic 82.64 68.77"
+            },
+            {
+                "label": "Diluted",
+                "section": "APPROPRIATIONS",
+                "values": {
+                    "2023": 82.27,
+                    "2022": 68.31
+                },
+                "page_number": 1,
+                "source_text": "Diluted 82.27 68.31"
+            }
+        ],
+        "periods": [
+            "2023",
+            "2022"
+        ]
+    },
+    "validation": {
+        "checks": [
+            {
+                "name": "interest_earned_plus_other_income_equals_total_income",
+                "formula": "Interest Earned + Other Income \u2248 Total Income",
+                "operands": {
+                    "interest_earned": 170754.05,
+                    "other_income": 33912.05
+                },
+                "calculated_value": 204666.1,
+                "reported_value": 204666.1,
+                "variance": -0.0,
+                "status": "PASS",
+                "period": null,
+                "note": null
+            },
+            {
+                "name": "expenditure_components_equal_total_expenditure",
+                "formula": "Interest Expended + Operating Expenses + Provisions & Contingencies \u2248 Total Expenditure",
+                "operands": {
+                    "interest_expended": 77779.94,
+                    "operating_expenses": 51533.69,
+                    "provisions_and_contingencies": 29203.77
+                },
+                "calculated_value": 158517.4,
+                "reported_value": 158517.4,
+                "variance": 0.0,
+                "status": "PASS",
+                "period": null,
+                "note": null
+            },
+            {
+                "name": "total_income_minus_total_expenditure_equals_net_profit_before_minority",
+                "formula": "Total Income - Total Expenditure \u2248 Consolidated Net Profit before Minority Interest",
+                "operands": {
+                    "total_income": 204666.1,
+                    "total_expenditure": 158517.4
+                },
+                "calculated_value": 46148.7,
+                "reported_value": 46148.7,
+                "variance": 0.0,
+                "status": "PASS",
+                "period": null,
+                "note": null
+            },
+            {
+                "name": "net_profit_before_minority_minus_minority_interest_equals_group_profit",
+                "formula": "Profit before Minority Interest - Minority Interest \u2248 Consolidated Net Profit attributable to the Group",
+                "operands": {
+                    "net_profit_before_minority_interest": 46148.7,
+                    "minority_interest": 151.59
+                },
+                "calculated_value": 45997.11,
+                "reported_value": 45997.11,
+                "variance": 0.0,
+                "status": "PASS",
+                "period": null,
+                "note": null
+            },
+            {
+                "name": "current_plus_brought_forward_equals_total_appropriation",
+                "formula": "Current Profit + Brought Forward Profit \u2248 Total Available for Appropriation",
+                "operands": {
+                    "net_profit_attributable_to_group": 45997.11,
+                    "brought_forward_profit": 99062.77
+                },
+                "calculated_value": 145059.88,
+                "reported_value": 145059.88,
+                "variance": 0.0,
+                "status": "PASS",
+                "period": null,
+                "note": null
+            }
+        ],
+        "overall_status": "PASS",
+        "issues": []
+    },
+    "processing_metadata": {
+        "ocr_used": true,
+        "ocr_provider": "tesseract",
+        "extraction_method": "heuristic",
+        "processed_at": "2026-09-10T15:14:52.466309Z",
+        "processing_time_ms": 5273
+    },
+    "errors": []
+}

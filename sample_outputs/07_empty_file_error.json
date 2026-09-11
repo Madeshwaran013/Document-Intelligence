@@ -1,0 +1,26 @@
+{
+    "document_name": "empty.pdf",
+    "document_type": "invoice",
+    "processing_status": "FAILED",
+    "overall_confidence": null,
+    "file_validation": {
+        "file_type": "application/pdf",
+        "is_supported": true,
+        "is_readable": false,
+        "page_count": 0,
+        "status": "FAILED",
+        "reason": "Uploaded file is empty."
+    },
+    "extracted_data": {},
+    "validation": null,
+    "processing_metadata": {
+        "ocr_used": false,
+        "ocr_provider": null,
+        "extraction_method": null,
+        "processed_at": "2026-09-10T15:14:58.592970Z",
+        "processing_time_ms": 0
+    },
+    "errors": [
+        "Uploaded file is empty."
+    ]
+}

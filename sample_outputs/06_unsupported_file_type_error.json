@@ -1,0 +1,26 @@
+{
+    "document_name": "unsupported.txt",
+    "document_type": "invoice",
+    "processing_status": "FAILED",
+    "overall_confidence": null,
+    "file_validation": {
+        "file_type": "text/plain",
+        "is_supported": false,
+        "is_readable": false,
+        "page_count": null,
+        "status": "FAILED",
+        "reason": "Only PDF / JPG / PNG documents are supported."
+    },
+    "extracted_data": {},
+    "validation": null,
+    "processing_metadata": {
+        "ocr_used": false,
+        "ocr_provider": null,
+        "extraction_method": null,
+        "processed_at": "2026-09-10T15:14:58.548103Z",
+        "processing_time_ms": 0
+    },
+    "errors": [
+        "Only PDF / JPG / PNG documents are supported."
+    ]
+}
