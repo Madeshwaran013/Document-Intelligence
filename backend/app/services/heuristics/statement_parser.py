@@ -70,7 +70,8 @@ class StatementLine:
 def _tokenize_trailing_numbers(line: str) -> tuple[str, list[float]]:
     """Split a line into (label_text, [numbers...]) by peeling numeric
     tokens off the end of the line."""
-    tokens = line.strip().split()
+    cleaned_line = re.sub(r"\[.*?\]|\(Refer.*?\)", "", line).strip()
+    tokens = cleaned_line.split()
     numbers: list[float] = []
     while len(tokens) > 1:
         candidate = tokens[-1]

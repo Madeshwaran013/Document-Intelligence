@@ -37,7 +37,7 @@ _PL_FIELDS = {
     "operating_expenses": (["operating expense"], None, []),
     "provisions_and_contingencies": (["provision"], None, []),
     "total_expenditure": (["total"], "EXPENDITURE", []),
-    "net_profit_before_minority_interest": (["net profit for the year before"], None, []),
+    "net_profit_before_minority_interest": (["net profit for the year before", "yearbefore", "before minorities"], None, []),
     "minority_interest": (["minorit"], None, ["before", "add", "less minority interest (opening"]),
     "net_profit_attributable_to_group": (["net profit for the year attributable"], None, []),
     "brought_forward_profit": (["brought forward"], None, []),
