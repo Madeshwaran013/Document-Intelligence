@@ -41,12 +41,27 @@ def _get_paddle_engine():
     if _paddle_engine is None:
         try:
             from paddleocr import PaddleOCR
-            # use_angle_cls=True handles rotated/skewed text.
-            # show_log=False silences PaddlePaddle's verbose startup output.
-            _paddle_engine = PaddleOCR(use_textline_orientation=True, lang="en", show_log=False)
-            logger.info("PaddleOCR engine initialised successfully.")
-        except Exception as exc:
-            raise OCRFailedError(f"Failed to initialise PaddleOCR engine: {exc}") from exc
+            init_options = [
+                {"use_textline_orientation": True, "lang": "en"},
+                {"use_angle_cls": True, "lang": "en"},
+                {"lang": "en"},
+                {},
+            ]
+            last_exc = None
+            for kwargs in init_options:
+                try:
+                    _paddle_engine = PaddleOCR(**kwargs)
+                    logger.info("PaddleOCR engine initialised successfully with %s", kwargs)
+                    break
+                except Exception as exc:  # noqa: BLE001
+                    last_exc = exc
+                    logger.debug("PaddleOCR init attempt with %s failed: %s", kwargs, exc)
+            if _paddle_engine is None:
+                raise OCRFailedError(f"Failed to initialise PaddleOCR engine: {last_exc}")
+        except Exception as exc:  # noqa: BLE001
+            if not isinstance(exc, OCRFailedError):
+                raise OCRFailedError(f"Failed to initialise PaddleOCR engine: {exc}") from exc
+            raise
     return _paddle_engine
 
 
@@ -107,8 +122,12 @@ def _extract_from_pdf(content: bytes, settings) -> OCRResult:
 def _render_pdf_pages(content: bytes) -> list[Image.Image]:
     """Rasterise every PDF page to a PIL image using PyMuPDF (or pdftoppm fallback)."""
     try:
-        import pymupdf
-        doc = pymupdf.open(stream=content, filetype="pdf")
+        try:
+            import fitz
+            doc = fitz.open(stream=content, filetype="pdf")
+        except ImportError:
+            import pymupdf
+            doc = pymupdf.open(stream=content, filetype="pdf")
         images: list[Image.Image] = []
         for page in doc:
             pix = page.get_pixmap(dpi=200)
@@ -166,7 +185,11 @@ def _ocr_via_paddle(image: Image.Image) -> str:
     """Run PaddleOCR on a PIL image and return joined text."""
     engine = _get_paddle_engine()
     img_array = np.array(image.convert("RGB"))
-    result = engine.ocr(img_array, cls=True)
+    # cls parameter was removed in PaddleOCR >=3.7 (orientation handled internally)
+    try:
+        result = engine.ocr(img_array, cls=True)
+    except TypeError:
+        result = engine.ocr(img_array)
     if not result or result == [None]:
         return ""
     return _format_paddle_result(result)
