@@ -168,23 +168,39 @@ def _extract_from_image(content: bytes, settings) -> OCRResult:
 
 
 def _ocr_image(image: Image.Image, settings) -> str:
-    """Run OCR on a PIL Image and return the extracted text string."""
+    """Run OCR on a PIL Image and return the extracted text string.
+
+    Uses RapidOCR (lightweight ONNX-based OCR, ~60MB RAM footprint) by default
+    to prevent Out-Of-Memory (OOM) kills on memory-constrained cloud environments
+    like Render (512MB limit).
+    """
+    if max(image.size) > 2000:
+        image = image.copy()
+        image.thumbnail((2000, 2000), Image.Resampling.LANCZOS)
+
     if settings.OCR_PROVIDER == "ocr_space" and settings.OCR_SPACE_API_KEY:
         try:
             return _ocr_via_ocr_space(image, settings)
         except Exception:  # noqa: BLE001
-            logger.warning("OCR.Space failed, falling back to PaddleOCR")
+            logger.warning("OCR.Space failed, falling back to RapidOCR")
 
-    # --- PaddleOCR (primary local engine) ---
-    try:
-        return _ocr_via_paddle(image)
-    except Exception as exc:  # noqa: BLE001
-        logger.warning("PaddleOCR failed (%s), trying RapidOCR fallback", exc)
+    if settings.OCR_PROVIDER == "paddle":
         try:
+            return _ocr_via_paddle(image)
+        except Exception as exc:  # noqa: BLE001
+            logger.warning("PaddleOCR failed (%s), trying RapidOCR fallback", exc)
             return _ocr_via_rapidocr(image)
+
+    # --- RapidOCR (primary lightweight local ONNX engine, ~60MB RAM) ---
+    try:
+        return _ocr_via_rapidocr(image)
+    except Exception as exc:  # noqa: BLE001
+        logger.warning("RapidOCR failed (%s), trying PaddleOCR fallback", exc)
+        try:
+            return _ocr_via_paddle(image)
         except Exception as fallback_exc:  # noqa: BLE001
             raise OCRFailedError(
-                f"OCR failed (PaddleOCR & RapidOCR): {exc} | {fallback_exc}"
+                f"OCR failed (RapidOCR & PaddleOCR): {exc} | {fallback_exc}"
             ) from exc
 
 

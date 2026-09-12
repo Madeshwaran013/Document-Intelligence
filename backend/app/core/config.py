@@ -34,9 +34,10 @@ class Settings(BaseSettings):
     )
 
     # --- OCR ---
-    # "paddle" (local, default, no API key needed — uses PaddleOCR) or
-    # "ocr_space" (free-tier hosted OCR API — requires OCR_SPACE_API_KEY).
-    OCR_PROVIDER: str = "paddle"
+    # "rapid" (default lightweight ONNX engine, ~60MB RAM),
+    # "paddle" (heavy engine, >600MB RAM), or
+    # "ocr_space" (hosted API — requires OCR_SPACE_API_KEY).
+    OCR_PROVIDER: str = "rapid"
     OCR_SPACE_API_KEY: Optional[str] = None
     OCR_LANGUAGE: str = "en"
 
