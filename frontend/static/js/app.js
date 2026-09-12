@@ -190,7 +190,14 @@ document.getElementById("upload-form").addEventListener("submit", async (e) => {
 
   try {
     const res = await fetch(`${API_BASE}/documents/process`, { method: "POST", body: formData });
-    const data = await res.json();
+    const contentType = res.headers.get("content-type") || "";
+    let data = {};
+    if (contentType.includes("application/json")) {
+      data = await res.json();
+    } else {
+      const htmlText = await res.text();
+      throw new Error(`Server returned status ${res.status}. Please wait a moment if service is restarting.`);
+    }
     if (!res.ok) {
       const msg = data?.error?.message || "Processing failed.";
       statusEl.innerHTML = `<div style="padding:12px;background:rgba(244,63,94,0.1);border:1px solid rgba(244,63,94,0.3);border-radius:8px;color:#f43f5e;font-size:14px">❌ Processing Error: ${escapeHtml(msg)}</div>`;
