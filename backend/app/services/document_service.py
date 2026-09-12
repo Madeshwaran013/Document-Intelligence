@@ -82,18 +82,35 @@ def process_document(
     # 4. Financial calculation validation
     validation = financial_validation_service.validate(document_type, extracted_data)
 
-    # 5. Status: PASS only if extraction produced meaningful data AND no validation FAILed.
+    # Check if native extraction produced any fields
     has_any_value = any(
         (isinstance(v, dict) and v.get("value") not in (None, ""))
         or (isinstance(v, list) and len(v) > 0)
         for v in extracted_data.values()
     )
-    processing_status = "PASS" if has_any_value and validation.overall_status != "FAIL" else (
-        "PASS" if has_any_value else "FAILED"
-    )
-    # Validation FAIL does not itself fail the document (a document can be
-    # extracted successfully but fail a reconciliation check) — only true
-    # processing failures (no extractable data) set FAILED.
+
+    # Fallback: If native PDF text yielded 0 extracted fields, force OCR rasterisation and retry extraction!
+    if not has_any_value and not ocr_result.ocr_used and file_validation.file_type == "application/pdf":
+        logger.info("Native PDF text layer yielded 0 fields for '%s'. Retrying with forced OCR...", filename)
+        try:
+            forced_ocr_result = ocr_service.force_ocr_pdf(content)
+            if forced_ocr_result.pages and any(p.strip() for p in forced_ocr_result.pages):
+                retry_data, retry_method = extraction_service.extract_fields(document_type, forced_ocr_result.pages)
+                retry_has_value = any(
+                    (isinstance(v, dict) and v.get("value") not in (None, ""))
+                    or (isinstance(v, list) and len(v) > 0)
+                    for v in retry_data.values()
+                )
+                if retry_has_value:
+                    ocr_result = forced_ocr_result
+                    extracted_data = retry_data
+                    method = retry_method
+                    has_any_value = True
+                    # Re-run financial validation with the newly extracted data
+                    validation = financial_validation_service.validate(document_type, extracted_data)
+                    logger.info("Forced OCR fallback succeeded for '%s'", filename)
+        except Exception as ocr_exc:  # noqa: BLE001
+            logger.warning("Forced OCR fallback failed for '%s': %s", filename, ocr_exc)
 
     processing_status = "PASS" if has_any_value else "FAILED"
 

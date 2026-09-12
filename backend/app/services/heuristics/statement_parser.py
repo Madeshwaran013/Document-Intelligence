@@ -72,13 +72,18 @@ def _tokenize_trailing_numbers(line: str) -> tuple[str, list[float]]:
     tokens off the end of the line."""
     tokens = line.strip().split()
     numbers: list[float] = []
-    while tokens:
+    while len(tokens) > 1:
         candidate = tokens[-1]
-        if _TRAILING_NUMBER.fullmatch(candidate.replace(",", "")) or _TRAILING_NUMBER.fullmatch(candidate):
-            val = parse_number(candidate)
-            if val is None and candidate not in {"-", "—"}:
-                break
-            numbers.insert(0, val if val is not None else 0.0)
+        val = parse_number(candidate)
+        if val is not None:
+            numbers.insert(0, val)
+            tokens.pop()
+        elif candidate in {"-", "—", "–", "nil", "Nil", "N/A"}:
+            numbers.insert(0, 0.0)
+            tokens.pop()
+        elif _TRAILING_NUMBER.fullmatch(candidate.replace(",", "")) or _TRAILING_NUMBER.fullmatch(candidate):
+            parsed = parse_number(candidate)
+            numbers.insert(0, parsed if parsed is not None else 0.0)
             tokens.pop()
         else:
             break

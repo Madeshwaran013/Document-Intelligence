@@ -92,6 +92,14 @@ def extract_text(filename: str, content: bytes, content_type: str) -> OCRResult:
         raise OCRFailedError(f"Failed to extract text from document: {exc}") from exc
 
 
+def force_ocr_pdf(content: bytes) -> OCRResult:
+    """Force rasterisation and OCR on every page of a PDF, bypassing native text layer."""
+    settings = get_settings()
+    images = _render_pdf_pages(content)
+    pages_text = [_ocr_image(img, settings) for img in images]
+    return OCRResult(pages=pages_text, ocr_used=True, ocr_provider=settings.OCR_PROVIDER)
+
+
 def _extract_from_pdf(content: bytes, settings) -> OCRResult:
     reader = PdfReader(io.BytesIO(content))
     pages_text: list[str] = []
