@@ -42,9 +42,8 @@ def _get_paddle_engine():
         try:
             from paddleocr import PaddleOCR
             init_options = [
-                {"use_textline_orientation": True, "lang": "en"},
-                {"use_angle_cls": True, "lang": "en"},
                 {"lang": "en"},
+                {"use_angle_cls": True, "lang": "en"},
                 {},
             ]
             last_exc = None
@@ -193,11 +192,10 @@ def _ocr_via_paddle(image: Image.Image) -> str:
     """Run PaddleOCR on a PIL image and return joined text."""
     engine = _get_paddle_engine()
     img_array = np.array(image.convert("RGB"))
-    # cls parameter was removed in PaddleOCR >=3.7 (orientation handled internally)
     try:
-        result = engine.ocr(img_array, cls=True)
-    except TypeError:
         result = engine.ocr(img_array)
+    except Exception as exc:  # noqa: BLE001
+        raise OCRFailedError(f"PaddleOCR execution failed: {exc}") from exc
     if not result or result == [None]:
         return ""
     return _format_paddle_result(result)
